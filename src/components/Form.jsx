@@ -1,6 +1,12 @@
-import React from 'react'
+import { useState } from 'react'
 
 const Formulario = () => {
+  const [name, setName] = useState('')
+
+  const handleChange = (e) => {
+    setName(e.target.value)
+  }
+  console.log(name);
   return (
     <div className='md:w-1/2 lg:w-2/5'>
       <h2 className='font-black text-3xl text-center'>Seguimiento Pacientes</h2>
@@ -13,7 +19,10 @@ const Formulario = () => {
           id='mascota'
           className='border-2 w-full p-2 mt-2 placeholder:text-gray-500 rounded-md'
           type='text' 
-          placeholder='Nombre de la Mascota' />
+          placeholder='Nombre de la Mascota' 
+          onChange={handleChange}
+          />
+          
         </div>
         <div className='mb-3'>
           <label htmlFor='propietario' className='block uppercase text-gray-700 font-bold'>Nombre del Propietario</label>
