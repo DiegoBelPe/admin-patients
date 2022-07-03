@@ -8,7 +8,7 @@ const Formulario = () => {
   }
   console.log(name);
   return (
-    <div className='md:w-1/2 lg:w-2/5'>
+    <div className='md:w-1/2 lg:w-2/5 mx-5'>
       <h2 className='font-black text-3xl text-center'>Seguimiento Pacientes</h2>
       <p className='text-center mt-5 font-bold mb-5'>Añade pacientes y <span className='text-blue-700'>Administralos</span></p>
 
@@ -20,6 +20,7 @@ const Formulario = () => {
           className='border-2 w-full p-2 mt-2 placeholder:text-gray-500 rounded-md'
           type='text' 
           placeholder='Nombre de la Mascota' 
+          value={name}
           onChange={handleChange}
           />
           
