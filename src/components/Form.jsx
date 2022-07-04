@@ -2,11 +2,15 @@ import { useState } from 'react'
 
 const Formulario = () => {
   const [name, setName] = useState('')
+  const [propietario, setPropietario] = useState('')
+  const [email, setEmail] = useState('')
+  const [fechaAlta, setFechaAlta] = useState('')
+  const [sintomas, setSintomas] = useState('')
 
-  const handleChange = (e) => {
-    setName(e.target.value)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('formulario enviado')
   }
-  console.log(name);
   return (
     <div className='md:w-1/2 lg:w-2/5 mx-5'>
       <h2 className='font-black text-3xl text-center'>Seguimiento Pacientes</h2>
@@ -21,7 +25,7 @@ const Formulario = () => {
           type='text' 
           placeholder='Nombre de la Mascota' 
           value={name}
-          onChange={handleChange}
+          onChange={(e) => setName(e.target.value)}
           />
           
         </div>
@@ -31,7 +35,9 @@ const Formulario = () => {
           id='propietario'
           className='border-2 w-full p-2 mt-2 placeholder:text-gray-500 rounded-md'
           type='text' 
-          placeholder='Nombre del propietario' />
+          placeholder='Nombre del propietario' 
+          value={propietario}
+          onChange={(e) => setPropietario(e.target.value)}/>
         </div>
         <div className='mb-3'>
           <label htmlFor='email' className='block uppercase text-gray-700 font-bold'>Email</label>
@@ -39,26 +45,35 @@ const Formulario = () => {
           id='email'
           className='border-2 w-full p-2 mt-2 placeholder:text-gray-500 rounded-md'
           type='email' 
-          placeholder='Email' />
+          placeholder='Email' 
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}/>
         </div>
         <div className='mb-3'>
           <label htmlFor='alta' className='block uppercase text-gray-700 font-bold'>Alta</label>
           <input 
           id='alta'
           className='border-2 w-full p-2 mt-2 placeholder:text-gray-500 rounded-md'
-          type='date' />
+          type='date' 
+          value={fechaAlta}
+          onChange={(e) => setFechaAlta(e.target.value)}/>
         </div>
         <div className='mb-3'>
           <label htmlFor='sintomas' className='block uppercase text-gray-700 font-bold'>Sintomas</label>
           < textarea 
           id='sintomas'
           className='border-2 w-full p-2 mt-2 placeholder:text-gray-500 rounded-md'
-          placeholder='Descripcion de sintomas' />
+          placeholder='Descripcion de sintomas' 
+          value={sintomas} 
+          onChange={(e) => setSintomas(e.target.value)}/>
         </div>
         <input 
         type="submit"
         className='bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md uppercase cursor-pointer mb-5'
-        value="Añadir paciente" />
+        value="Añadir paciente" 
+        onClick={handleSubmit}
+        
+        />
 
       </form>
     </div>
