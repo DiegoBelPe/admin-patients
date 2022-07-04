@@ -9,7 +9,12 @@ const Formulario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('formulario enviado')
+    if([name, propietario, email, fechaAlta, sintomas].includes('')) {
+      alert('Todos los campos son obligatorios')
+    }
+    else {
+      alert(`Hola ${propietario}, tu mascota ${name} tiene los siguientes sintomas: ${sintomas}`)
+    }
   }
   return (
     <div className='md:w-1/2 lg:w-2/5 mx-5'>
