@@ -9,6 +9,14 @@ const Formulario = ({pacientes, setPacientes}) => {
   const [sintomas, setSintomas] = useState('')
   const [error, setError] = useState(false)
 
+  const generarId = () => {
+    const random = Math.random().toString(36).substr(2);
+    const fecha = Date.now().toString(36);
+
+    return random + fecha;
+
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if([name, propietario, email, fechaAlta, sintomas].includes('')) {
@@ -22,7 +30,8 @@ const Formulario = ({pacientes, setPacientes}) => {
         propietario, 
         email, 
         fechaAlta, 
-        sintomas
+        sintomas,
+        id: generarId()
       }
 
       setPacientes([...pacientes, objetPaciente]);
@@ -41,7 +50,11 @@ const Formulario = ({pacientes, setPacientes}) => {
 
       <form action="" className='bg-white shadow-md rounded-lg py-10 px-5'>
         <div className='mb-3'>
-          {error && <Error mensaje='Todos los campos son obligatorios'/>}
+          {error && <Error>
+            <p>
+              Todos los campos son obligatorios
+            </p>
+              </Error>}
           <label htmlFor='mascota' className='block uppercase text-gray-700 font-bold'>Nombre de la mascota</label>
           <input 
           id='mascota'
