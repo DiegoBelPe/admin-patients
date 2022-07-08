@@ -6,13 +6,16 @@ import Form from './components/Form'
 import ListPatients from './components/ListPatients'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [pacientes, setPacientes] = useState([])
 
   return (
     <div className="container mx-auto mt-10">
       <Header />
       <div className='mt-10 md:flex'>
-      <Form />
+      <Form 
+        pacientes={pacientes}
+        setPacientes={setPacientes}
+      />
       <ListPatients />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const Formulario = () => {
+const Formulario = ({pacientes, setPacientes}) => {
   const [name, setName] = useState('')
   const [propietario, setPropietario] = useState('')
   const [email, setEmail] = useState('')
@@ -15,6 +15,22 @@ const Formulario = () => {
       return
     }
       setError(false)
+
+      const objetPaciente = {
+        name, 
+        propietario, 
+        email, 
+        fechaAlta, 
+        sintomas
+      }
+
+      setPacientes([...pacientes, objetPaciente]);
+
+      setName('')
+      setPropietario('')
+      setEmail('')
+      setFechaAlta('')
+      setSintomas('')
 
   }
   return (
