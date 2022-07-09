@@ -1,6 +1,6 @@
 import React from 'react'
 
-const patient = ({paciente}) => {
+const patient = ({paciente, setPaciente}) => {
 
   const {name, propietario, email, fechaAlta, sintomas} = paciente;
   return (
@@ -27,6 +27,7 @@ const patient = ({paciente}) => {
         </p>
         <div>
           <button
+            onClick={() => setPaciente(paciente)}
             type='button'
             className='bg-blue-500 hover:bg-blue-600 py-2 px-4 text-white font-bold uppercase rounded-lg'
           >
